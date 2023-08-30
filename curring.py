@@ -1,11 +1,11 @@
 from types import FunctionType
 from typing import Union
 
-from pymonad.tools import curry
+from pymonad import curry
 
 
 # 2.3.1
-@curry(2)
+@curry
 def _greeting1(greeting: str, name: str) -> Union[str, FunctionType]:
     return f"{greeting}, {name}!"
 
@@ -14,7 +14,7 @@ hello_name1: FunctionType = _greeting1("Hello")
 
 
 # 2.3.2.
-@curry(4)
+@curry
 def _greeting2(greeting: str, sep: str, end: str, name: str) -> Union[str, FunctionType]:
     return f"{greeting}{sep} {name}{end}"
 

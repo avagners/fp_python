@@ -1,11 +1,11 @@
 from types import FunctionType
 from typing import Union
 
-from pymonad.tools import curry
+from pymonad import curry
 
 
 # 3.1.
-@curry(2)
+@curry
 def tag(tag: str, value: str) -> Union[str, FunctionType]:
     return f"<{tag}>{value}</{tag}>"
 
@@ -15,7 +15,7 @@ italic: FunctionType = tag("i")
 
 
 # 3.2.
-@curry(3)
+@curry
 def tag_attr(tag: str, attr: dict, value: str) -> Union[str, FunctionType]:
     params = ''.join(f' {key}="{value}"' for key, value in attr.items())
     return f"<{tag}{params}>{value}</{tag}>"

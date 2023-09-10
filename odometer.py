@@ -14,8 +14,8 @@ get_time_and_speed: Callable[[List[int]], List[int]] = lambda massive: (
 
 # итоговая функция расчета пути
 odometr: Callable[[List[int]], int] = lambda massive: reduce(
-    lambda x, y: x + y,
-    map(lambda x, y: x * y, *get_time_and_speed(massive))
+    lambda path1, path2: path1 + path2,
+    map(lambda time, speed: time * speed, *get_time_and_speed(massive))
 )
 
 
